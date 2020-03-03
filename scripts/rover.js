@@ -46,6 +46,7 @@ class Rover {
     }
     moveForward(){
         this.travelLog.push(this.position);
+
         switch(this.direction){
             case "N":  
                 if(this.position[1] === 0) {
@@ -112,5 +113,33 @@ class Rover {
         }  else {
             return false
         }
+    }
+
+    render(){
+        let $game = document.querySelector("#game");
+        let $roverImg = document.createElement("img");
+    
+            switch(this.direction){
+                case "N":
+                    $roverImg.setAttribute("src", "./images/wallU.png");
+                    break;
+                case "W":
+                    $roverImg.setAttribute("src", "./images/wallL.png");
+                    break;
+                case "S":
+                    $roverImg.setAttribute("src", "./images/wallD.png");
+                    break;
+                case "E":
+                    $roverImg.setAttribute("src", "./images/wallR.png");
+                    break;
+                default:
+                    console.log("Direction unkown");
+            }
+            $roverImg.setAttribute("id", "wall-e");
+    
+            $roverImg.style.left = `${this.position[0] * 10}%`;
+            $roverImg.style.top = `${this.position[1] * 10}%`;
+    
+            $game.appendChild($roverImg);
     }
 }

@@ -1,4 +1,3 @@
-
 document.addEventListener("keydown", function(event){
     switch(event.code){
         case "ArrowRight":
@@ -9,6 +8,7 @@ document.addEventListener("keydown", function(event){
             break;
         case "Space":
             game.rover.moveForward();
+            console.log("forward");
             break;
         default:
             console.log("unknown controls")   

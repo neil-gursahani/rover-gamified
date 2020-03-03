@@ -1,4 +1,4 @@
-class Game {
+ class Game {
     constructor(){
         this.rover = new Rover([3,4]);
         this.obstacles = [new Flash([8,8])];
@@ -8,6 +8,16 @@ class Game {
     start(){
     
         this.renderRef = setInterval(()=> {
+            let $game = document.querySelector("#game");
+            $game.innerHTML = "";
+            this.rover.render();
+        
+            for(let i = 0; i < this.obstacles.length; i++) {
+                this.obstacles[i].render();
+            }
+            for(let i = 0; i < this.obstacles.length; i++) {
+                this.trash[i].render();
+            }
             renderEverything()
         }, 250)
 
